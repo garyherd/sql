@@ -12,7 +12,7 @@ car_data = [
 with sqlite3.connect("cars.db") as connection:
     c = connection.cursor()
     try:
-        c.executemany("INSERT INTO inventory (?, ?, ?)", car_data)
+        c.executemany("INSERT INTO inventory VALUES(?, ?, ?)", car_data)
     except sqlite3.OperationalError as e:
         print "Something went wrong, try again"
         print e.args
